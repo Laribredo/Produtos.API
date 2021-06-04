@@ -13,7 +13,7 @@ Tecnologias:
 
 # Camadas
 
-Web: Rest API - Produtos.Api
-DataBase: Entity Framework Core SQL SERVER - Produtos.Data
-Services: Regras de negocio - Produtos.Service
-Model: Data transfer objets - Produtos.Model
+* Web: Rest API - Produtos.Api
+* DataBase: Entity Framework Core SQL SERVER - Produtos.Data
+* Services: Regras de negocio - Produtos.Service
+* Model: Data transfer objets - Produtos.Model
