@@ -17,6 +17,8 @@ using Produtos.Service;
 using Produtos.Service.Interfaces;
 using Produtos.Model.Interfaces;
 using Produtos.Model;
+using Produtos.Resource.Interface;
+using Produtos.Resource;
 
 namespace Produtos.API
 {
@@ -38,6 +40,18 @@ namespace Produtos.API
             services.AddScoped<IProdutosService, ProdutosService>();
             services.AddScoped<IMessageModel, MessageModel>();
             services.AddScoped<IProdutoViewModel, ProdutoViewModel>();
+            services.AddTransient<IFile, Files>();
+
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    //.SetPreflightMaxAge(TimeSpan.FromDays(1))
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +62,14 @@ namespace Produtos.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+
+            app.UseCors("CorsPolicy");
+
+
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            app.UseAuthentication();
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

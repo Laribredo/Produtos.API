@@ -25,7 +25,7 @@ namespace Produtos.API.Controllers
                 return BadRequest(service._message.Mensagem);
             }
 
-            return Ok(new { resultado = res, mensagem = service._message.Mensagem });
+            return Ok(res);
         }
 
         [HttpGet("{Id}")]
@@ -46,7 +46,7 @@ namespace Produtos.API.Controllers
             if(ModelState.IsValid)
             {
                 var res = service.AddProduto(produto.GetProduto());
-                return Ok(new { resultado = res, mensagem = service._message.Mensagem });
+                return Ok(new { succcess = res, error = service._message.Mensagem });
             }
             else
             {
@@ -61,7 +61,7 @@ namespace Produtos.API.Controllers
             if (ModelState.IsValid)
             {
                 var res = service.UpdateProduto(produto.GetProduto());
-                return Ok(new { resultado = res, mensagem = service._message.Mensagem });
+                return Ok(new { succcess = res, error = service._message.Mensagem });
             }
             else
             {
@@ -73,7 +73,7 @@ namespace Produtos.API.Controllers
         public ActionResult Delete(int Id, [FromServices] IProdutosService service)
         {
             var res = service.RemoveProduto(Id);
-            return Ok(new { resultado = res, mensagem = service._message.Mensagem });
+            return Ok(new { succcess = res, error = service._message.Mensagem });
         }
 
 

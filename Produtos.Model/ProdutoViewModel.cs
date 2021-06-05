@@ -1,4 +1,5 @@
-﻿using Produtos.Data;
+﻿using Microsoft.AspNetCore.Http;
+using Produtos.Data;
 using Produtos.Model.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,7 @@ namespace Produtos.Model
     {
         public int? Id { get; set; }
         [Required(ErrorMessage ="O Campo nome do Produto é necessário.")]
-        public string Nome { get; set; }
-        [Required(ErrorMessage = "O Campo Valor do Produto é necessário.")]
+        public string Nome { get; set; }        
         public decimal ValorProduto { get; set; }
         public string Imagem { get; set; }
 

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -14,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Produto.Data\Produtos.Data.csproj" />
     <ProjectReference Include="..\Produtos.Model\Produtos.Model.csproj" />
+    <ProjectReference Include="..\Produtos.Resource\Produtos.Resource.csproj" />
     <ProjectReference Include="..\Produtos.Service\Produtos.Service.csproj" />
   </ItemGroup>
 
