@@ -17,3 +17,4 @@ Tecnologias:
 * DataBase: Entity Framework Core SQL SERVER - Produtos.Data
 * Services: Regras de negocio - Produtos.Service
 * Model: Data transfer objets - Produtos.Model
+* Resources: Classe para lidar com arquivos. - Produtos.Resource
