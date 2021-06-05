@@ -26,5 +26,32 @@ namespace Produtos.Model
                 ValorVenda = this.ValorProduto
             };
         }
+
+        public ProdutoViewModel GetProduto(Produto produto)
+        {
+            this.Id = produto.Id;
+            this.Imagem = produto.Imagem;
+            this.Nome = produto.NomeProduto;
+            this.ValorProduto = produto.ValorVenda;
+            
+            return this;
+        }
+
+        public IList<ProdutoViewModel> GetProdutos(List<Produto> produtos)
+        {
+            IList<ProdutoViewModel> produtoViews = new List<ProdutoViewModel>();
+            foreach (var produto in produtos)
+            {
+                produtoViews.Add(new ProdutoViewModel()
+                {
+                    Id = produto.Id,
+                    Imagem = produto.Imagem,
+                    Nome = produto.NomeProduto,
+                    ValorProduto = produto.ValorVenda
+                });
+            }
+
+            return produtoViews;
+        }
     }
 }

@@ -43,8 +43,8 @@ namespace Produtos.Resource
                 }
 
                 string imagem =  DateTime.Now.ToString("dd-MM-yyyy-mm-ss-f") + "." + formato;
-
-                string filePath = Path.Combine("C:\\TCC_API\\TCC_API\\Imagens", imagem);
+                //Definir um caminho para a imagem
+                string filePath = Path.Combine(Directory.GetCurrentDirectory()+"\\Imagens", imagem);
                 using (Stream fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await file.CopyToAsync(fileStream);

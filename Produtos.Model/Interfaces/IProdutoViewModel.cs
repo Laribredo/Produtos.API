@@ -17,5 +17,9 @@ namespace Produtos.Model.Interfaces
 
         Produto GetProduto();
 
+        ProdutoViewModel GetProduto(Produto produto);
+
+        IList<ProdutoViewModel> GetProdutos(List<Produto> produtos);
+
     }
 }

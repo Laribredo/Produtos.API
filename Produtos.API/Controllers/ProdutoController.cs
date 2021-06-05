@@ -17,9 +17,9 @@ namespace Produtos.API.Controllers
     {
 
         [HttpGet]
-        public ActionResult GetAll([FromServices] IProdutosService service)
+        public ActionResult GetAll([FromServices] IProdutosService service, [FromServices] IProdutoViewModel model)
         {
-            var res = service.GetAllProdutos();
+            var res = model.GetProdutos(service.GetAllProdutos());
             if (service._message.Tipo == Model.Enums.MensagemTipoEnum.Erro)
             {            
                 return BadRequest(service._message.Mensagem);
@@ -29,9 +29,9 @@ namespace Produtos.API.Controllers
         }
 
         [HttpGet("{Id}")]
-        public ActionResult GetById(int Id,[FromServices] IProdutosService service)
+        public ActionResult GetById(int Id,[FromServices] IProdutosService service, [FromServices] IProdutoViewModel model)
         {
-            var resultado = service.GetProdutoById(Id);
+            var resultado = model.GetProduto(service.GetProdutoById(Id));
             if (service._message.Tipo == Model.Enums.MensagemTipoEnum.Erro)
             {
                 return BadRequest(service._message.Mensagem);
